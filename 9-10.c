@@ -1,24 +1,18 @@
 #include <stdio.h>
 
 int main() {
-	    int a, b;
-	        int x, y;
+	int a, b, temp;
 
-		    printf("a 값 입력: ");
-		        scanf("%d", &a);
+	printf("a 값 입력: ");
+	scanf("%d", &a);
+	printf("b 값 입력: ");
+	scanf("%d", &b);
 
-			    printf("b 값 입력: ");
-			        scanf("%d", &b);
+	temp = a;
+	a = b;
+	b = temp;
 
-				   
-				         x = &a;
-				             y = &b;
-				    
-				                int temp = x;
-				                     x = y;
-				                         x = temp;
-				    
-				                             printf("바뀐 값 a는 %d, b는 %d\n", a, b);
-				    
-				                                 return 0;
-				                                 }
+	printf("바뀐 값 a는 %d, b는 %d\n", a, b);
+
+	return 0;
+}
