@@ -1,0 +1,26 @@
+import qrcode
+
+def create_qr_code():
+    # 사용자로부터 텍스트 입력받기
+    text = input("Enter the text or URL to generate a QR code: ")
+    
+    # QR 코드 생성
+    qr = qrcode.QRCode(
+        version=1,  # QR 코드 크기 (1~40)
+        error_correction=qrcode.constants.ERROR_CORRECT_L,  # 에러 보정 수준
+        box_size=10,  # QR 코드의 각 상자의 크기
+        border=4  # 테두리 크기
+    )
+    qr.add_data(text)
+    qr.make(fit=True)
+
+    # QR 코드 이미지 생성
+    img = qr.make_image(fill_color="black", back_color="white")
+    
+    # 파일로 저장
+    file_name = input("Enter the file name to save the QR code (without extension): ")
+    img.save(f"{file_name}.png")
+    print(f"QR code saved as {file_name}.png")
+
+if __name__ == "__main__":
+    create_qr_code()
